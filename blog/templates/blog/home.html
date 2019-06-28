@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Open+Sans:700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="utf-8"/>
+    <title>Ewha collabo</title>
+
+    <style>
+        body{
+            background-color: #fdf9f3;
+        }
+         /* title */
+         img{
+             display: block;
+             margin-left: auto;
+             margin-right: auto;
+         }
+
+         /* 기본 설정*/
+         a{text-decoration:none; color:linear-gradient(#e66465, #9198e5);}         
+         a:hover{color:#C5D3E6;}                     
+         
+         /* nav tag */
+         nav ul{padding-top:40px;}                    
+         nav ul li {
+            display:inline;                         
+            border-left:1px solid #999;            
+            font:bold 25px Dotum;                     
+            padding:0 40px;  
+        }
+         nav ul li:first-child{border-left:none;}
+
+         /* search */
+         .container{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+         }     
+    </style>
+</head>
+<body>    
+    <nav>
+        <ul class="nav justify-content-center">
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="{% url 'home' %}" style="color: black">HOME</a></li>
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="{% url 'photo' %}" style="color: black">PHOTO</a></li>           
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="#" style="color: black">MOST LIKE</a></li>
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="#" style="color: black">MOST VIEW</a></li>
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="#" style="color: black">MOST RECENT</a></li>
+        </ul>    
+    </nav>    
+
+    <div class="title">
+        <img src="{% static 'ewhacollabo_size3.png' %}"></img>
+        <h2 style="text-align:center">Get & Edit free photos!!</h2>
+    </div>
+    <div class="container">
+        <form action="" method="get">
+        <input type="text" name="q" value="{{ q }}" style="width: 1300px; height:80px; margin-left: 300px; margin-bottom: 20px; border-color:#B99EFF;"> 
+        <input type="submit" value="검색" id="search" style="width: 120px; height:75px; font-size:40px; font-family: 'Do Hyeon', sans-serif;">
+        </form>
+    </div>
+</body>
+</html>

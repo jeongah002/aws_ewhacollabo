@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   
+</head>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Open+Sans:700&display=swap" rel="stylesheet">
+<div class="navbar">
+    <a class="nav-item nav-link" href="{% url 'new' %}" style="font-size: 30px; font-family:'do hyeon'; color: plum">글쓰기</a>
+  </div>
+  <style>
+      body{
+          background-color: #fdf9f3;
+      }
+       /* title */
+       img{
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+       }
+
+       /* 기본 설정*/
+       a{text-decoration:none; color:linear-gradient(#e66465, #9198e5);}         
+       a:hover{color:#C5D3E6;}                     
+       
+       /* nav tag */
+       nav ul{padding-top:40px;}                    
+       nav ul li {
+          display:inline;                         
+          border-left:1px solid #999;            
+          font:bold 25px Dotum;                     
+          padding:0 40px;  
+      }
+       nav ul li:first-child{border-left:none;}
+
+       /* search */
+       .container{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+       }     
+  </style>  
+<body>
+    <nav>
+        <ul class="nav justify-content-center">
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="{% url 'home' %}" style="color: black">HOME</a></li>
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="{% url 'photo' %}" style="color: black">PHOTO</a></li>           
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="#" style="color: black">MOST LIKE</a></li>
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="#" style="color: black">MOST VIEW</a></li>
+            <li style="font-family: 'Open Sans', sans-serif;"><a href="#" style="color: black">MOST RECENT</a></li>
+        </ul>    
+    </nav>  
+
+
+<div class="album py-5 bg-light">
+  <div class="container">
+     <div class="row">
+     {% for blog in blogs.all %}
+       <div class="col-md-4">
+         <div class="card mb-4 shadow-sm">
+          <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" style="width: 40px";>
+          <p>{{ blog.pub_date }}</p>
+           <img class="card-img-top" src="{{ blog.image.url }}" alt=" Card image cap">
+           <div class="card-body">
+             <p class="card-text">{{ blog.body }}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <br><a href="{% url 'detail' blog.id %}" style="color: purple; size: 30px;"><b>콜라보하기!</b></a></p>
+           </div>
+         </div>
+       </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+</body>
